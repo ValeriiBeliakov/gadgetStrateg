@@ -1,0 +1,93 @@
+import React, { ChangeEvent,  useEffect, useState } from "react";
+import { products } from "../../Constants";
+import { useNavigate } from "react-router";
+import search from "../../assets/iconsearch.svg";
+// import s from "./Search.module.scss";
+import "./Search.scss";
+import { Product } from "../../types/types";
+
+const Search:React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+useEffect(()=>{
+  const callback = (e:KeyboardEvent)=>{
+    if(e.code === "Enter" && searchTerm.length > 0){
+     handleIconClick();
+    }
+  };
+    document.addEventListener("keydown",callback);
+    return ()=>{
+      document.removeEventListener("keydown",callback)
+    }
+  
+},[searchTerm])
+
+
+  const navigate = useNavigate();
+  // For changes in input
+  const handleSearchChange = (e:ChangeEvent<HTMLInputElement>):void => {
+    const value = e.target.value;
+
+    setSearchTerm(value);
+    if (value) {
+      const filtered = products.filter((product) =>
+        product.productName.toLowerCase().includes(value.toLowerCase())
+      );
+
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts([]);
+    }
+  };
+  // for list
+  const handleProductClick = (product:Product) => {
+    setSearchTerm(product.productName);
+    navigate(`/shop/${product.id}`);
+    setFilteredProducts([]);
+  };
+  // icon
+  const handleIconClick = ():void => {
+    const filtered = products.filter((product) =>
+      product.productName
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase().trim())
+    );
+    if (filtered.length > 0) {
+      navigate(`/shop/${filtered[0].id}`);
+      setFilteredProducts([]);
+    } else {
+      alert("Товар не найден");
+    }
+  };
+
+  return (
+    <div className="search_block">
+      <div className="search ">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Поиск товара..."
+          className="input "
+        />
+        <img
+          src={search}
+          onClick={searchTerm.length > 0 ? handleIconClick : undefined}
+        ></img>
+      </div>
+
+      {filteredProducts.length > 0 && (
+        <ul className="list">
+          {filteredProducts.map((product) => (
+            <li key={product.id} onClick={() => handleProductClick(product)}>
+              {product.productName}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default Search;

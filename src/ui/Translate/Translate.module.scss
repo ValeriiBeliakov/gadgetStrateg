@@ -1,0 +1,37 @@
+.section_elements{
+    position: relative;
+    overflow-x: hidden;
+    max-width: 200rem;
+    margin: auto;
+   
+}
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    gap: 3.2rem;
+    transition: all 0.5s ease-in-out ;
+}
+.leftchevrone , .rightchevrone{
+    position: absolute;
+    transform:translateY(-50%)
+}
+.leftchevrone{
+    left: 0;
+    top:50%;
+}
+.rightchevrone{
+    right: 0;
+    top:50%;
+}
+.chevrone{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 1000px;
+     background-color: #FFCA00;
+     border: none;
+     width: 3.2rem;
+     height: 3.2rem;
+}

@@ -1,0 +1,24 @@
+.container{
+  max-width: 120rem;
+  margin:auto;
+}
+.categories_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:2rem;
+
+   
+    
+}
+.category{
+  max-width: 21rem;
+  background-color: #fff;
+  padding: 35px;
+  border-radius: 1rem;
+}
+.name{
+    font-size: 1.6rem;
+    text-align: center;
+}

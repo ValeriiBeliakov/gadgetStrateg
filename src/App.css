@@ -1,0 +1,20 @@
+html,
+body {
+  font-size: 62.5%;
+  list-style: none;
+  height: 100%;
+}
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px  */
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 59em) {
+  html {
+    /* 8px / 16px = 0.5 = 50% */
+    font-size: 50%;
+  }
+}
