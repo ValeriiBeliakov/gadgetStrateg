@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import s from "./Signup.module.scss";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
@@ -14,6 +14,9 @@ const Signup:React.FC = () => {
   const [userName, setUserName] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const [loading, setIsLoading] = useState<boolean>(false);
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[])
   const signup = async (e:FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
