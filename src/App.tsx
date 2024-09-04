@@ -9,7 +9,7 @@ import { Navigate, Route, Routes } from "react-router";
 import Shop from "./pages/Shop/Shop";
 import Checkout from "./pages/Checkout/Checkout";
 import ProtectedRoutes from "./routers/ProtectedRoutes";
-import Favorites from "./pages/Favoriets/Favorites";
+import Favorites from "./pages/Favorites/Favorites";
 import ProductsByCategories from "./pages/ProductsByCategories/ProductsByCategories";
 import React from "react";
 

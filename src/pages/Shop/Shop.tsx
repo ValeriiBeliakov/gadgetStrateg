@@ -9,7 +9,6 @@ import ProductList from "../../ui/ProductList/ProductList";
 
 const Shop:React.FC = () => {
   const [productsData, setProductsData] = useState(products);
-  const [sortType, setSortType] = useState<string>("");
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -60,13 +59,13 @@ const Shop:React.FC = () => {
     setProductsData(searchProducts);
   };
   const handleSortChange = (e:ChangeEvent<HTMLSelectElement>) => {
-    setSortType(e.target.value);
+    const sortType:string = e.target.value
     const sortedProducts = [...productsData].sort((a, b) => {
       if (sortType === "asc") {
         return +a.price - +b.price;
-      } else if (sortType === "desc") {
+      }  else if(sortType === "desc") {
         return +b.price - +a.price;
-      } else {
+      }else{
         return 0;
       }
     });
@@ -75,7 +74,6 @@ const Shop:React.FC = () => {
   return (
     <>
       <div className={s.container}>
-        {/* <ProductsPage title="dd" /> */}
         <div className={s.nav_section}>
           <div className={s.filters}>
             <select onChange={handleFilter}>

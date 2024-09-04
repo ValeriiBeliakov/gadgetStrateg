@@ -1,7 +1,11 @@
+
+.menu_icon{
+    cursor: pointer;
+}
 .menu_list{
     position: absolute;
     top: 7rem;
-    left: 15rem;
+    left: 18rem;
     z-index: 999;
 }
 .list{
@@ -10,7 +14,7 @@
     gap: 1rem;
     // align-items: center;
     // justify-content: start;
-    width: 10rem;
+    width: max-content;
     height: auto;
     justify-content: center;
     background-color: #fff;
@@ -19,4 +23,9 @@
     padding: 2rem;
     border-radius: 5px;
 
+}
+@media(max-width:500px){
+    .menu_icon{
+        width: 3rem;
+    }
 }

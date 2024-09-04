@@ -38,20 +38,26 @@
 }
 
 .search_box{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 60rem;
-    border: 1px solid #000;   
-    border-radius: 5px;
-    padding-right: 1rem;
-    background-color: #fff;
+    position: relative;
+   
 }
 .search_box input{
+    border: 1px solid grey;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 0.8rem 1.2rem;
+    box-shadow:  0 1px 2px rgba(0, 0, 0, 0.4);
     width: 100%;
     border:none;
     outline: none;
     padding: 0.8rem 1rem;
+}
+.search_box span{
+    position: absolute;
+    right: 0.8rem;
+    top: 0.4rem;
+    cursor: pointer;
 }
 
 .nothing{

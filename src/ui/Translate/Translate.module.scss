@@ -15,11 +15,13 @@
 }
 .leftchevrone , .rightchevrone{
     position: absolute;
-    transform:translateY(-50%)
+    transform:translateY(-50%);
+    
 }
 .leftchevrone{
     left: 0;
     top:50%;
+   
 }
 .rightchevrone{
     right: 0;

@@ -35,7 +35,7 @@ const Translate:React.FC<Carousel> = ({ children }) => {
       >
         {children}
       </div>
-      <div className={s.leftchevrone}>
+     
         {isLeftVisible && (
           <div className={s.leftchevrone}>
             <button
@@ -52,7 +52,7 @@ const Translate:React.FC<Carousel> = ({ children }) => {
             </button>
           </div>
         )}
-      </div>
+ 
       {isRightVisible && (
         <div className={s.rightchevrone}>
           <button

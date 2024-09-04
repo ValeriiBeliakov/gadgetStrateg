@@ -4,15 +4,7 @@ import BackButton from "../../ui/BackButton/BackButton";
 import React, { useEffect } from "react";
 import { useCustomSelector } from "../../custom-hooks/store";
 
-// interface FavoriteItem {
-//   id: number;
-//   price: number;
-//   quantity: number;
-//   productName: string,
-//   imgUrl: string,
-//   totalPrice?: number;
-//   avgRating?:number
-// }
+
 
 
 const Favorites:React.FC = () => {

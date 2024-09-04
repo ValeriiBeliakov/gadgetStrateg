@@ -25,7 +25,7 @@ const ProductDetails:React.FC = () => {
     window.scrollTo(0, 0);
   }, [product]);
   if (!product) {
-    return <div>Товар не найден</div>;
+    return <h1>Товар не найден</h1>;
   }
   const {
     imgUrl,
@@ -48,13 +48,13 @@ const ProductDetails:React.FC = () => {
       userName: reviewUserName,
       text: reviewUserMsg,
       rating,
-    };}
-    // console.log(reviewObj);
+    }
+    console.log(reviewObj);
     toast.success("Спасибо за отзыв");
-  };
+  }}
   const addToCart = ():void => {
     const newItem = {
-      id: +id,
+      id: +id!,
       productName: productName,
       imgUrl: imgUrl,
       price: price,
@@ -70,12 +70,12 @@ const ProductDetails:React.FC = () => {
       <div className={s.block}>
         <img src={imgUrl} alt={productName} />
         <div className={s.products_details}>
-          <h2>{productName}</h2>
+          <h3 className={s.productName}>{productName}</h3>
 
           <p className={s.product_rating}> ⭐ {avgRating}</p>
 
-          <span className={s.price}>{price}</span>
-          <p className={s.shortdesc}>{shortDesc}</p>
+          <span className={s.price}>{price} ₽</span>
+          <i className={s.shortdesc}>{shortDesc}</i>
           <motion.button
             whileTap={{ scale: 1.2 }}
             className={s.button}

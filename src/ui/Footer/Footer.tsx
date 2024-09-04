@@ -38,7 +38,7 @@ const Footer:React.FC = () => {
 
           <p className="copyright">
             Авторские права &copy; <span className="year">{year}</span>{" "}
-            Omnifood, Inc. Все права защищены
+            GadgetStrateg, Inc. Все права защищены
           </p>
         </div>
 

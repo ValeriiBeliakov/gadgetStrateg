@@ -4,21 +4,21 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
-import { auth, db,storage } from "../../firebase.config";
+import { auth, db, storage } from "../../firebase.config";
 
 import { toast } from "react-toastify";
+import { Loading } from "../../Loading/Loading";
 
-const Signup:React.FC = () => {
+const Signup: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [userName, setUserName] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
   const [loading, setIsLoading] = useState<boolean>(false);
-  useEffect(()=>{
-    window.scrollTo(0,0);
-  },[])
-  const signup = async (e:FormEvent<HTMLFormElement>
-  ) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const signup = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
@@ -60,43 +60,53 @@ const Signup:React.FC = () => {
     }
   };
   return (
-    <div className={s.login_block}>
-      <h1 className={s.title}>Регистрация</h1>
+    <div className={s.signup_block}>
       {loading ? (
-        <h1>Загрузка</h1>
+        <Loading />
       ) : (
-        <form className={s.form} onSubmit={signup}>
-          <input
-            type="text"
-            placeholder="имя пользователя"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-          <input
-            type="email"
-            placeholder="email"
-            value={email}
-            onChange={(e:ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="пароль"
-            value={password}
-            onChange={(e:ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-            required
-          />
-          <input
-            type="file"
-            placeholder="файл"
-            onChange={(e:ChangeEvent<HTMLInputElement>) => setFile(e.target.files ? e.target.files[0]: null)}
-          />
-          <button type="submit">войти</button>
-          <p>
-            Уже есть аккаунт <Link to="/login"> Авторизоваться</Link>
-          </p>
-        </form>
+        <div className={s.flex_block}>
+          <h1 className={s.title}>Регистрация</h1>
+          <form className={s.form} onSubmit={signup}>
+            <input
+              type="text"
+              placeholder="имя пользователя"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="email"
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              required
+            />
+            <input
+              type="password"
+              placeholder="пароль"
+              value={password}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
+              required
+            />
+            <label className={s.file_button}>
+            <input
+              type="file"
+              placeholder="файл"
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setFile(e.target.files ? e.target.files[0] : null)
+              }
+            />
+            </label>
+            <button type="submit">войти</button>
+            <p>
+              Уже есть аккаунт ? <Link to="/login" className={s.register_acc}> Авторизоваться</Link>
+            </p>
+          </form>
+        </div>
       )}
     </div>
   );

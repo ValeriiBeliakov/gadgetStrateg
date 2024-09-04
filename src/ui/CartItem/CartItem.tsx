@@ -10,6 +10,7 @@ import {
 } from "../../redux/slices/CartSlice";
 import React from "react";
 import { useCustomDispatch, useCustomSelector } from "../../custom-hooks/store";
+import { Link } from "react-router-dom";
 
 
 interface Item {
@@ -24,23 +25,23 @@ interface CartItem{
 }
 const CartItem:React.FC<CartItem> = ({ item })=> {
   const dispatch = useCustomDispatch();
-  const { productName, price, imgUrl, id, totalPrice } = item;
+  const { productName, price, imgUrl,id, totalPrice } = item;
   const currentQuantity = useCustomSelector(getCurrentQuantityById(id));
 
   const deleteItem = () => {
     dispatch(cartActions.deleteItem(id));
   };
-  // const totalPrice = currentQuantity * price;
+ 
   return (
     <>
       <td className={s.el}>
-        <div className={s.product}>
+        <Link to={`/shop/${item.id}`} className={s.product}>
           <img src={imgUrl} className={s.img} />
-          <h2>{productName}</h2>
-        </div>
+          <h1>{productName}</h1>
+        </Link>
         <p className={s.price}>{price} ₽</p>
         <div className={s.quantity_block}>
-          <UpdateItemQuantity id={id} currentQuantity={currentQuantity} />
+          <UpdateItemQuantity id={item.id} currentQuantity={currentQuantity} />
         </div>
         <p className={s.total}>{totalPrice} ₽</p>
         <motion.div

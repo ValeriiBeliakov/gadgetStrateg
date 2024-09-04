@@ -15,6 +15,9 @@ const Menu:React.FC = () => {
     setActiveMenu(false);
    }
   }
+  const handleClose = ():void=>{
+    setActiveMenu(false);
+  }
   useEffect(()=>{
     if(activeMenu){
       document.addEventListener('click',handleClickOutside)
@@ -27,16 +30,16 @@ const Menu:React.FC = () => {
   },[activeMenu])
   return (
     <div ref={menuRef}>
-      <img src={menu} alt="Меню" onClick={toggleMenu} />
+      <img src={menu} alt="Меню" onClick={toggleMenu}  className={s.menu_icon}/>
 
       {activeMenu && (
         <div className={s.menu_list}>
           <ul className={s.list}>
-            <li>
+            <li onClick={handleClose}>
               <Link to={"/shop"}>все категории</Link>
             </li>
             {categories.map((category) => (
-              <li key={category.title}>
+              <li key={category.title} onClick={handleClose}>
                 <Link to={`main/${category.category}`}>{category.title}</Link>
               </li>
             ))}

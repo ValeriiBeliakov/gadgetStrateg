@@ -21,7 +21,7 @@
 }
 
 .form input{
- border: 1px solid orange;
+ border: 1px solid #FFCA00;
  border-radius: 5px;
  padding: 1rem;
  width: 100%;
@@ -32,7 +32,7 @@
 .checkout_cart{
     padding: 2rem;
     border-radius: 5px;
-    background-color: rgb(242, 189, 29);
+    background-color: #FFCA00;
     width: 30rem;
 
 
@@ -46,10 +46,8 @@
     margin-bottom: 1rem;
     font-size: 1.2rem;
 
-}.checkout_cart h1{
-    border: 1px solid orange;
-    padding-top: 1rem;
 }
+
 .button_delivery{
     background-color: #fff;
     border: none;

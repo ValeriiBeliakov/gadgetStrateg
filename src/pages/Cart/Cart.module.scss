@@ -79,7 +79,10 @@
 }
 @media (max-width: 760px){
     .categories th{
-       font-size: 1.4rem;
+       font-size: 1.6rem;
+    }
+    .title{
+        font-size: 3.2rem;
     }
 }
 @media (max-width: 570px){
@@ -87,8 +90,15 @@
         margin: 0;
         width: 100%;
     }
+    .advertisement img{
+        width: 4.2rem;
+        height: 4.2rem;
+    }
     .advertisement ,.buy_block{
         margin: 4rem 0;
+    }
+    .title{
+        font-size: 2.4rem;
     }
 }
 @media (max-width:500px){

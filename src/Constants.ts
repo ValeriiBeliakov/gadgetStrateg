@@ -1,8 +1,8 @@
-import price from "./assets/advantages/price.svg";
+import price from "./assets/advantages/box.svg";
 import delivery from "./assets/advantages/car.svg";
 import insurance from "./assets/advantages/insurance.svg";
 import guarentee from "./assets/advantages/guarantee.svg";
-import credit from "./assets/advantages/credit.svg";
+import credit from "./assets/advantages/credit-card.svg";
 import computers from "./assets/categories/computers.svg";
 import music from "./assets/categories/music.svg";
 import phones from "./assets/categories/phones.svg";
@@ -142,7 +142,7 @@ const companies:Company[] = [
 
 const products:Product[] = [
   {
-    id: "01",
+    id: "1",
     productName: "Sony ps5 slim 1tb",
     imgUrl: ps5,
     category: "games",
@@ -155,7 +155,7 @@ const products:Product[] = [
     avgRating: 9.9,
   },
   {
-    id: "02",
+    id: "2",
     productName: "Телевизор TCL 55C745",
     imgUrl: tv2,
     category: "tv",
@@ -169,7 +169,7 @@ const products:Product[] = [
     avgRating: 8.9,
   },
   {
-    id: "03",
+    id: "3",
     productName: "Игровая клавиатура Red Squarb",
     imgUrl: keyboard,
     category: "pk",
@@ -183,7 +183,7 @@ const products:Product[] = [
     avgRating: 9.3,
   },
   {
-    id: "04",
+    id: "4",
     productName: "Смартфон OPPO A78 8/256GB черный",
     imgUrl: oppo,
     category: "phones",
@@ -196,7 +196,7 @@ const products:Product[] = [
     avgRating: 9.7,
   },
   {
-    id: "05",
+    id: "5",
     productName: "Смарт-часы Apple Watch Series 8 41mm",
     imgUrl: watch8,
     category: "watches",
@@ -210,7 +210,7 @@ const products:Product[] = [
     avgRating: 9.1,
   },
   {
-    id: "06",
+    id: "6",
     productName: "Смартфон HONOR Magic6 Pro 12/512GB",
     imgUrl: honor,
     category: "phones",
@@ -224,7 +224,7 @@ const products:Product[] = [
     avgRating: 9.9,
   },
   {
-    id: "07",
+    id: "7",
     productName: "Смартфон realme 12 Pro 8/256GB Blue Sea",
     imgUrl: realme12pro,
     category: "phones",
@@ -238,7 +238,7 @@ const products:Product[] = [
     avgRating: 8.9,
   },
   {
-    id: "08",
+    id: "8",
     productName: 'Монитор HUAWEI 28.2"/IPS/3840',
     imgUrl: monitor_huawei,
     category: "pk",
@@ -252,7 +252,7 @@ const products:Product[] = [
     avgRating: 9.7,
   },
   {
-    id: "09",
+    id: "9",
     productName: "Блендер Carrera №654 ",
     imgUrl: blender,
     category: "cookie",

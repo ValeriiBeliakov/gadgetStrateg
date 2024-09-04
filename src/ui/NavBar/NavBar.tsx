@@ -13,9 +13,13 @@ import { toast } from "react-toastify";
 import { signOut } from "firebase/auth";
 import Search from "../Search/Search";
 import Menu from "../Menu/Menu";
-import { ArrowLeft, SearchCheck } from "lucide-react";
+import { ArrowLeft, Search as SearchIcon } from "lucide-react";
 import { useCustomSelector } from "../../custom-hooks/store";
 
+
+interface User {
+  photoURL: string;
+}
 const NavBar:React.FC = () => {
   const [fullWidthSearch, setFullWidthSearch] = useState<boolean>(false);
   const totalQuantity = useCustomSelector((state) => state.cart.totalQuantity);
@@ -67,7 +71,7 @@ const NavBar:React.FC = () => {
     <header className={s.header} ref={headerRef}>
       <div className={s.header_container}>
         <div className={fullWidthSearch ? s.hidden : s.logobar}>
-          <h1>
+          <h1 className={s.logo_title}>
             <Link to="/">GadgetStrateg</Link>
           </h1>
           <Menu />
@@ -94,7 +98,7 @@ const NavBar:React.FC = () => {
                 className={s.searchToggle}
                 onClick={() => setFullWidthSearch(true)}
               >
-                <SearchCheck />
+                <SearchIcon />
               </button>
             }
             <li>
@@ -112,8 +116,7 @@ const NavBar:React.FC = () => {
             <li className={s.profile}>
               <motion.img
                 whileTap={{ scale: 1.2 }}
-                src={ currentUser?.photoURL ?? user}
-                // alt={`${currentUser} ? ${currentUser.displayName}  : пользователь`}
+                src={ (currentUser as User)?.photoURL ?? user}
                 onClick={toggleProfileActions}
               />
               <div
@@ -125,8 +128,8 @@ const NavBar:React.FC = () => {
                   <span onClick={logOut}>Выйти</span>
                 ) : (
                   <div className={s.actions}>
-                    <Link to="/login">Вход</Link>
-                    <Link to="/signup">Регистрация</Link>
+                    <Link to="/login" className={s.login}>Вход</Link>
+                    <Link to="/signup" className={s.register}>Регистрация</Link>
                   </div>
                 )}
               </div>

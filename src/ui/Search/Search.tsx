@@ -2,8 +2,7 @@ import React, { ChangeEvent,  useEffect, useState } from "react";
 import { products } from "../../Constants";
 import { useNavigate } from "react-router";
 import search from "../../assets/iconsearch.svg";
-// import s from "./Search.module.scss";
-import "./Search.scss";
+import s from "./Search.module.scss";
 import { Product } from "../../types/types";
 
 const Search:React.FC = () => {
@@ -62,23 +61,24 @@ useEffect(()=>{
   };
 
   return (
-    <div className="search_block">
-      <div className="search ">
+    <div className={s.search_block}>
+      <div className={s.search }>
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Поиск товара..."
-          className="input "
+          className={s.input}
         />
         <img
           src={search}
+          className={s.search_icon}
           onClick={searchTerm.length > 0 ? handleIconClick : undefined}
         ></img>
       </div>
 
       {filteredProducts.length > 0 && (
-        <ul className="list">
+        <ul className={s.list}>
           {filteredProducts.map((product) => (
             <li key={product.id} onClick={() => handleProductClick(product)}>
               {product.productName}

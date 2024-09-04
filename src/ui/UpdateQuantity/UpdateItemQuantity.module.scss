@@ -10,6 +10,9 @@
     background-color: orange;
     padding: 0.8rem 1.2rem;
 }
+.quantity{
+    font-size: 1.4rem;
+}
 @media (max-width:760px){
     .button{
         padding: 0.4rem 0.8rem;
@@ -20,7 +23,10 @@
         gap:0.2rem;
     }
     .button{
-        padding: 0.1rem 0.3rem;
+        padding: 0.2rem 0.6rem;
+    }
+    .quantity{
+        font-size: 1.2;
     }
 
 }

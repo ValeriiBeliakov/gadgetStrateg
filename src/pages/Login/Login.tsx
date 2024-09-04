@@ -4,6 +4,7 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import { toast } from "react-toastify";
+import { Loading } from "../../Loading/Loading";
 
 const Login:React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -33,7 +34,7 @@ const Login:React.FC = () => {
   return (
     <section className={s.login}>
       {isLoading ? (
-        <h1 className={s.loading}>Загрузка</h1>
+        <Loading/>
       ) : (
         <div className={s.content_block}>
           <h1 className={s.title}>Авторизация</h1>
@@ -43,7 +44,7 @@ const Login:React.FC = () => {
                 GadgetStrateg
               </Link>
             </div>
-            <form action="" className={s.form} onSubmit={signIn}>
+            <form  className={s.form} onSubmit={signIn}>
               <input
                 type="email"
                 placeholder="email"
@@ -58,7 +59,7 @@ const Login:React.FC = () => {
               />
               <button type="submit">войти</button>
               <p>
-                Нет аккаунта? <Link to="/signup"> Создать аккаунт</Link>
+                Нет аккаунта? <Link to="/signup" className={s.create_acc}> Создать аккаунт</Link>
               </p>
             </form>
           </div>

@@ -17,7 +17,7 @@ const UpdateItemQuantity:React.FC<UpdateQuantity> = ({ id, currentQuantity }) =>
       >
         -
       </button>
-      {currentQuantity}
+      <span className={s.quantity}>{currentQuantity}</span>
       <button
         onClick={() => dispatch(cartActions.increaseQuantity(id))}
         className={s.button}

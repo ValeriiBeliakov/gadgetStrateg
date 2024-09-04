@@ -18,6 +18,9 @@
     width: 30rem;
     padding: 2rem;
 }
+.productName{
+    font-size: 2.4rem;
+}
 .products_details{
     display: flex;
     flex-direction: column;
@@ -25,13 +28,15 @@
 
 }
 .product_rating{
-    font-size: 1.6rem;
+    font-size: 2.4rem;
 }
 .price{
     font-size: 1.8rem;
+    font-weight: 500;
 }
 .shortdesc{
     font-size: 1.6rem;
+    margin-bottom: 1rem;
 }
 .button{
     font-size: 1.4rem;
@@ -122,6 +127,9 @@
     .description{
         // font-size: 1.2rem;
         width: 45rem;
+    }
+    .productName{
+        font-size: 1.6rem;
     }
 }
 @media (max-width:500px){
