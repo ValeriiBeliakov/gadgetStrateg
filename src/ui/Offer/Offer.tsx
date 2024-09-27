@@ -11,9 +11,8 @@ const Offer:React.FC = () => {
   const [seconds, setSeconds] = useState<number>();
 
   let interval:number;
-
   const countDown = ():void => {
-    const destination = new Date("Oct 10, 2024").getTime();
+    const destination = new Date("November 10, 2024").getTime();
     interval = window.setInterval(():void => {
       const newDate = new Date().getTime();
       const distinction = destination - newDate;

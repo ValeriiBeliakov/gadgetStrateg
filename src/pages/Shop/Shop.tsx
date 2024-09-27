@@ -9,47 +9,15 @@ import ProductList from "../../ui/ProductList/ProductList";
 
 const Shop:React.FC = () => {
   const [productsData, setProductsData] = useState(products);
+  const [sortType, setSortType] = useState("asc");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const handleFilter = (e:ChangeEvent<HTMLSelectElement>) => {
     const filterValue = e.target.value;
-    if (filterValue === "pk") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "pk"
-      );
-      setProductsData(filteredProducts);
-    }
-    if (filterValue === "phones") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "phones"
-      );
-      setProductsData(filteredProducts);
-    }
-    if (filterValue === "cookie") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "cookie"
-      );
-      setProductsData(filteredProducts);
-    }
-    if (filterValue === "watches") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "watches"
-      );
-      setProductsData(filteredProducts);
-    }
-    if (filterValue === "tv") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "tv"
-      );
-      setProductsData(filteredProducts);
-    }
-    if (filterValue === "headphones") {
-      const filteredProducts = products.filter(
-        (item) => item.category === "headphones"
-      );
-      setProductsData(filteredProducts);
-    }
+    const filteredProducts = products.filter((item) => item.category === filterValue);
+    setProductsData(filteredProducts);
   };
   const handleSearch = (e:ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
@@ -59,7 +27,7 @@ const Shop:React.FC = () => {
     setProductsData(searchProducts);
   };
   const handleSortChange = (e:ChangeEvent<HTMLSelectElement>) => {
-    const sortType:string = e.target.value
+    setSortType(e.target.value);
     const sortedProducts = [...productsData].sort((a, b) => {
       if (sortType === "asc") {
         return +a.price - +b.price;
