@@ -4,16 +4,16 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-const Offer:React.FC = () => {
+const Offer: React.FC = () => {
   const [days, setDays] = useState<number>();
   const [hours, setHours] = useState<number>();
   const [minutes, setMinutes] = useState<number>();
   const [seconds, setSeconds] = useState<number>();
 
-  let interval:number;
-  const countDown = ():void => {
-    const destination = new Date("November 10, 2024").getTime();
-    interval = window.setInterval(():void => {
+  let interval: number;
+  const countDown = (): void => {
+    const destination = new Date("November 27, 2024").getTime();
+    interval = window.setInterval((): void => {
       const newDate = new Date().getTime();
       const distinction = destination - newDate;
       const days = Math.floor(distinction / (1000 * 60 * 60 * 24));
@@ -68,12 +68,12 @@ const Offer:React.FC = () => {
               </div>
             </div>
           </div>
-          <button className={s.button}>
+          <button type="button" className={s.button}>
             <NavLink to={"/shop/18"}>Перейти к товару</NavLink>
           </button>
         </div>
         <div className={s.product_block}>
-          <img src={iphone} alt="iphone 14 pro max"/>
+          <img src={iphone} alt="iphone 14 pro max" />
           <span className={s.sale}>-20%</span>
         </div>
       </div>
